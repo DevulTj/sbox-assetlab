@@ -1,0 +1,15 @@
+{
+  "Title": "Asset Load Order Test",
+  "Type": "game",
+  "Org": "local",
+  "Ident": "asset_load_order_test",
+  "Schema": 1,
+  "HasAssets": true,
+  "AssetsPath": "",
+  "ResourcePaths": [
+    "/data/*"
+  ],
+  "HasCode": true,
+  "CodePath": "/code/",
+  "RootNamespace": "Sandbox"
+}

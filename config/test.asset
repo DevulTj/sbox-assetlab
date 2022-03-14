@@ -1,0 +1,8 @@
+//
+// TestAsset
+//
+@BaseClass = test : ""
+[
+	testvalue(string) : "Test Value" : "Testing" : ""
+]
+
