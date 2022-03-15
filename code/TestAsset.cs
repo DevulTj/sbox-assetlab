@@ -1,6 +1,26 @@
 
 using Sandbox;
 using System.Collections.Generic;
+using System.ComponentModel;
+
+public struct CraftingEntry
+{
+	[Property]
+	public string ItemId { get; set; }
+	[Property]
+	public int Amount { get; set; } = 0;
+}
+
+public struct CraftingRecipe
+{
+	[Property]
+	public List<CraftingEntry> Items { get; set; }
+
+	[Property]
+	public int Output { get; set; } = 1;
+}
+
+
 
 [Library( "test" ), AutoGenerate]
 public partial class TestAsset : Asset
@@ -9,8 +29,30 @@ public partial class TestAsset : Asset
 
 	public static TestAsset Random => All[Rand.Int( All.Count - 1 )];
 
-	[Property]
-	public string TestValue { get; set; } = "Testing";
+	[Property, Category( "Meta" )]
+	public string ItemName { get; set; }
+
+	[Property, Category( "Meta" )]
+	public string ItemDescription { get; set; }
+
+	[Property, Category( "Meta" ), Range( 0, 256 )]
+	public int StackSize { get; set; } = 1;
+
+	[Property, Category( "Meta" ), ResourceType( "png" )]
+	public string IconPath { get; set; }
+
+	[Property, Category( "World" ), ResourceType( "vmdl" )]
+	public string WorldModelPath { get; set; }
+
+	[Property, Category( "Crafting" )]
+	public int CraftingDuration { get; set; }
+
+	[Property, Category( "Crafting" )]
+	public CraftingRecipe Recipe { get; set; }
+
+	public Model WorldModel { get; set; }
+
+	public static Model FallbackWorldModel = Model.Load( "models/sbox_props/bin/rubbish_bag.vmdl" );
 
 	protected override void PostLoad()
 	{

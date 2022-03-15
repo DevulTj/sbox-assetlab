@@ -2,6 +2,21 @@
 {
 	data = 
 	{
-		testvalue = "What\'s up doc"
+		recipe = 
+		{
+			items = 
+			[
+				{
+					itemid = "test_item_id"
+					amount = 1
+				},
+			]
+		}
+		itemname = "A testing item"
+		itemdescription = "Lorem ipsum and some shit"
+		stacksize = 64
+		iconpath = "config/clothing.asset.png"
+		worldmodelpath = resource:"entities/drone/drone.vmdl"
+		craftingduration = 10
 	}
 }
