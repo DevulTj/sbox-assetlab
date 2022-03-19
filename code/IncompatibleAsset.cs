@@ -3,29 +3,12 @@ using Sandbox;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-public class CraftingEntry
+[Library( "e_resource" ), AutoGenerate]
+public partial class IncomatibleAsset : Asset
 {
-	[Property]
-	public string ItemId { get; set; }
-	[Property]
-	public int Amount { get; set; } = 0;
-}
+	public static List<IncomatibleAsset> All { get; set; } = new();
 
-public class CraftingRecipe
-{
-	[Property]
-	public List<CraftingEntry> Items { get; set; }
-
-	[Property]
-	public int Output { get; set; } = 1;
-}
-
-[Library( "test" ), AutoGenerate]
-public partial class TestAsset : Asset
-{
-	public static List<TestAsset> All { get; set; } = new();
-
-	public static TestAsset Random => All[Rand.Int( All.Count - 1 )];
+	public static IncomatibleAsset Random => All[Rand.Int( All.Count - 1 )];
 
 	[Property, Category( "Meta" )]
 	public string ItemName { get; set; }

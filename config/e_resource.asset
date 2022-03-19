@@ -1,0 +1,32 @@
+//
+// CraftingRecipe
+//
+@struct = CraftingRecipe
+[
+	items(array:struct:CraftingEntry) : "Items" :  : ""
+	output(integer) : "Output" : 1 : ""
+]
+
+//
+// CraftingEntry
+//
+@struct = CraftingEntry
+[
+	itemid(string) : "Item Id" :  : ""
+	amount(integer) : "Amount" : 0 : ""
+]
+
+//
+// IncomatibleAsset
+//
+@BaseClass = e_resource : ""
+[
+	itemname(string) { group = "Meta" } : "Item Name" :  : ""
+	itemdescription(string) { group = "Meta" } : "Item Description" :  : ""
+	stacksize(integer) { group = "Meta" } : "Stack Size" : 1 : ""
+	iconpath(string) { group = "Meta" editor = "AssetBrowse(png)" } : "Icon Path" :  : ""
+	worldmodelpath(resource:vmdl) { group = "World" } : "World Model Path" :  : ""
+	craftingduration(integer) { group = "Crafting" } : "Crafting Duration" : 0 : ""
+	recipe(struct:CraftingRecipe) { group = "Crafting" } : "Recipe" :  : ""
+]
+
