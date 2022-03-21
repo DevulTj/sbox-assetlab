@@ -20,6 +20,15 @@ public class CraftingRecipe
 	public int Output { get; set; } = 1;
 }
 
+public struct CraftingRecipeAsStruct
+{
+	[Property]
+	public List<CraftingEntry> Items { get; set; }
+
+	[Property]
+	public int Output { get; set; } = 1;
+}
+
 [Library( "test" ), AutoGenerate]
 public partial class TestAsset : Asset
 {
@@ -47,6 +56,9 @@ public partial class TestAsset : Asset
 
 	[Property, Category( "Crafting" )]
 	public CraftingRecipe Recipe { get; set; }
+
+	[Property, Category(" Struct" )]
+	public CraftingRecipeAsStruct RecipeStruct { get; set; }
 
 	public Model WorldModel { get; set; }
 
